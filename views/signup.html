@@ -13,28 +13,29 @@
 <body>
     <nav>
         <div class="logo">
-            <img id="logo" src="logo.png" alt="Frequency Graph in Shape of Heart. The Cadence Logo." onclick="backtoHome()">
+            <img id="logo" src="logo.png" alt="Frequency Graph in Shape of Heart. The Cadence Logo."
+                onclick="backtoHome()">
         </div>
     </nav>
     <div id="Overlay">
         <form id="signupform">
             <h1>Signup for Cadence</h1>
-            <label for="username">Username: </label>
             <input type="text" name="username" id="username" minlength="6" maxlength="20"
                 placeholder="Please enter a username..." required>
+            <label for="username">Username: </label>
             <br><br>
-            <label for="email">Email: </label>
             <input type="text" name="email" id="email" placeholder="Please enter your email..." required>
+            <label for="email">Email: </label>
             <br><br>
+            <input type="password" name="password" id="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                minlength="8" maxlength="32" placeholder="Please enter a password...">
             <label for="password">Password: </label>
-            <input type="password" name="password" id="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8"
-                maxlength="32" placeholder="Please enter a password...">
             <p>Valid Characters: "a-z, A-Z, 0-9, @,!, #, _, $"</p>
             <br>
             <input type="submit" id='submit' value="Sign Up">
         </form>
         <script>
-            document.getElementById('signupform').addEventListener('submit', function(event) {
+            document.getElementById('signupform').addEventListener('submit', function (event) {
                 event.preventDefault();
                 const username = document.getElementById('username').value
                 const email = document.getElementById('email').value
@@ -42,7 +43,7 @@
                 signup(username, email, password);
             });
         </script>
-    </section>
+        </section>
 </body>
 
 </html>
