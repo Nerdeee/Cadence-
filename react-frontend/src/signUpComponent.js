@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-function signUp() {
-    const { username, setUsername } = useState("");
-    const { password, setPassword } = useState("");
-    const { email, setEmail } = useState("");
+function SignUp() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -36,13 +36,13 @@ function signUp() {
     return (
         <>
             <div id="Overlay">
-                <form id="signupform">
+                <form id="signupform" onSubmit={handleSubmit}>
                     <h1>Signup for Cadence</h1>
                     <input type="text" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} minlength="6" maxlength="20"
                         placeholder="Please enter a username..." required></input>
                     <label for="username">Username: </label>
                     <br></br>
-                    <input type="text" name="email" id="email" value={password} onChange={(e) => setEmail(e.target.value)} placeholder="Please enter your email..." required></input>
+                    <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Please enter your email..." required></input>
                     <label for="email">Email: </label>
                     <br></br>
                     <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -50,11 +50,11 @@ function signUp() {
                     <label for="password">Password: </label>
                     <p>Valid Characters: "a-z, A-Z, 0-9, @,!, #, _, $"</p>
                     <br></br>
-                    <input type="submit" id='submit' onSubmit={handleSubmit} value="Sign Up"></input>
+                    <input type="submit" id='submit' value="Sign Up"></input>
                 </form>
             </div >
         </ >
     )
 }
 
-export default signUp;
+export default SignUp;
