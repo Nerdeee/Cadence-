@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken')
 
 const verifyCookie = async (req, res, next) => {
     //const { token } = req.body
+
+    // TO DO: MAKE THE TOKEN A SECRET TOKEN BETWEEN SERVER AND CLINET, NOT A COOKIE
     const token = req.cookies.token;
     try {
         const verified_token = jwt.verify(token, process.env.SECRET_STR)
